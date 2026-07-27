@@ -78,7 +78,7 @@ def prompt_generator(agent):
   return "Prompt file generated Successfully, agent can read it"
 
 
-
+prompt_generator(model)
 # TOOL 2:
 def resume_maker_prompt():
   """This function just gives updated prompt for model"""
@@ -87,7 +87,7 @@ def resume_maker_prompt():
     prompt = f.read()
   return prompt
 
-
+resume_maker_prompt()
 #===============================GENERATE RESUME==============================
 
 prompt = """You are a helpful AI assistant with job resume maker, your task
@@ -97,13 +97,7 @@ format resume"""
 
 final_prompt = prompt + resume_maker_prompt()
 user_details = """User details: given below:
-TANVI JAIN, +91 7048931461, jaintanvi770@gmail.com
-Naveen Shahdara, Delhi DOB 17-01-2008
-Skills: Python,Web developing, canva Expert, Sql
-Languages: Hindi, english
-Education: IITM university
-Bachelor of Computer Application
-Give Python Developer Resume, always use different styling use gradient theme pallete contrast in resume"""
+Give Python Developer Resume"""
 
 query = final_prompt + user_details
 
@@ -113,7 +107,8 @@ if st.button("Generate Resume"):
     response = agent.invoke({'messages': [{'role': 'user',"content": query}]})
     code = response['messages'] [-1].content [-1] ['text']
     
-    st.markdown(code)
+    #st.markdown(code)
+    st.html(code, width="stretch", unsafe_allow_javascript=True)
 
 
 
