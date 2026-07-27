@@ -118,4 +118,3 @@ if st.button("Generate Resume"):
 
 
 
-def resu
