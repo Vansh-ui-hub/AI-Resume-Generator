@@ -125,12 +125,13 @@ if uploaded_file is not None:
 prompt="""You are a helpful AI assistant with job resume maker, your task
 is to give HTML format resume, with proper designing using recent CSS and JS
 code, with professional design format. User will upload data and return HTML
-format resume, always use different styling use gradient theme pallete contrast in resume
+format resume, always use different styling  theme  contrast in resume
 
 IMPORTANT: wherever the profile photo goes in the resume, output exactly this tag and nothing else:
 
 <img src="PROFILE_IMAGE_PLACEHOLDER" style="width:100px;height:100px;border-radius:50%;">
 Do not draw or generate any other image tag or placeholder circle yourself """
+
 final_prompt=prompt+prompt_generator(model)
 USER_INFO=st.text_input("ENTER YOUR INFORMATION")
 user_details= f"""user details:given beow :resume info {USER_INFO} DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME """
