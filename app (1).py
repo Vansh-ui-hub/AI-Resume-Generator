@@ -122,49 +122,29 @@ if uploaded_file is not None:
 
 #===============================GENERATE RESUME==============================
 
-prompt="""You are an expert Resume Designer and ATS Resume Writer.
+prompt="""You are an expert ATS Resume Writer and Professional Resume Designer.
 
-Your task is to generate a modern, professional, ATS-friendly resume in clean HTML, CSS, and JavaScript.
+Generate a modern, premium, ATS-friendly resume using only HTML and CSS.
 
 Requirements:
-
-1. Create a premium corporate design suitable for internships, freshers, and professionals.
-2. Use a modern layout with proper spacing, typography, and visual hierarchy.
-3. Ensure ATS compatibility while maintaining an attractive design.
-4. Use responsive HTML and CSS only.
-5. Include the following sections when information is available:
-   - Profile Summary
-   - Education
-   - Skills
-   - Projects
-   - Experience
-   - Certifications
-   - Achievements
-   - Languages
-   - Contact Information
-
-6. Highlight skills using professional tags or progress indicators.
-7. Use modern fonts, subtle shadows, clean cards, and elegant section dividers.
-8. Maintain excellent readability and proper alignment.
-9. Use a professional color palette (Navy Blue, White, Light Gray).
-10. Make the resume look similar to resumes used by top tech companies.
-
-IMPORTANT:
-Whenever profile image is needed, use ONLY:
+- Clean, elegant, recruiter-friendly design.
+- Fully responsive, single-page layout.
+- Excellent typography, spacing, alignment, and white space.
+- Professional color palette (White, Navy, Gray) with subtle accents.
+- Modern cards, icons (Font Awesome CDN), and section dividers.
+- Include: Profile, Contact, Summary, Education, Experience, Projects, Skills, Certifications, Achievements, Languages, Interests, References (if provided).
+- Display skills as tags or progress bars.
+- Highlight achievements with bullet points.
+- Keep ATS compatibility (semantic HTML, readable text, no tables for layout).
+- Handle missing fields gracefully by hiding empty sections.
+- Use this image tag only where profile photo is required:
 
 <img src="PROFILE_IMAGE_PLACEHOLDER" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
 
-Do not generate any other image tag.
-
-OUTPUT RULES:
-- Return only complete HTML code.
-- Include all CSS inside <style> tags.
-- No explanations.
-- No markdown.
-- No code fences.
-- Ready to render directly in browser.
-- Create a unique premium design every time.
-- Resume must look professional enough to impress recruiters within 10 seconds. """
+- Never generate any other image tag.
+- Return only a complete HTML document with embedded CSS.
+- Do not include explanations, markdown, or code fences.
+- Make every resume unique, visually impressive, and suitable for internships, freshers, and experienced professionals. """
 
 final_prompt=prompt+prompt_generator(model)
 USER_INFO=st.text_area("ENTER YOUR INFORMATION")
