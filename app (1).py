@@ -158,6 +158,10 @@ DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME
 IMPORTANT PDF DOWNLOAD FEATURE: wrap the entire resume content in a single div with id="resume-content".
 Add a button with EXACTLY this markup, do not modify or omit any attribute:
 <button id="download-pdf-btn" style="[keep your own matching styles here]">Download PDF</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+
 """
 query = final_prompt+user_details
 
