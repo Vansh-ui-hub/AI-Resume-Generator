@@ -154,7 +154,11 @@ Photo: {uploaded_file }
 Photo present in current directory with name as 
 uploaded_file, and once resume generated give
 download button in same html code.Give onclick downlaodabe html button so that we can download the pdf
-DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME """
+DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME 
+IMPORTANT PDF DOWNLOAD FEATURE: wrap the entire resume content in a single div with id="resume-content".
+Add a button with EXACTLY this markup, do not modify or omit any attribute:
+<button id="download-pdf-btn" style="[keep your own matching styles here]">Download PDF</button>
+"""
 query = final_prompt+user_details
 
 import base64
