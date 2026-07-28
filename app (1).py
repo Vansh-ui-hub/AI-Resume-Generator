@@ -122,15 +122,49 @@ if uploaded_file is not None:
 
 #===============================GENERATE RESUME==============================
 
-prompt="""You are a helpful AI assistant with job resume maker, your task
-is to give HTML format resume, with proper designing using recent CSS and JS
-code, with professional design format. User will upload data and return HTML
-format resume, always use different styling  theme  contrast in resume
+prompt="""You are an expert Resume Designer and ATS Resume Writer.
 
-IMPORTANT: wherever the profile photo goes in the resume, output exactly this tag and nothing else:
+Your task is to generate a modern, professional, ATS-friendly resume in clean HTML, CSS, and JavaScript.
 
-<img src="PROFILE_IMAGE_PLACEHOLDER" style="width:100px;height:100px;border-radius:50%;">
-Do not draw or generate any other image tag or placeholder circle yourself """
+Requirements:
+
+1. Create a premium corporate design suitable for internships, freshers, and professionals.
+2. Use a modern layout with proper spacing, typography, and visual hierarchy.
+3. Ensure ATS compatibility while maintaining an attractive design.
+4. Use responsive HTML and CSS only.
+5. Include the following sections when information is available:
+   - Profile Summary
+   - Education
+   - Skills
+   - Projects
+   - Experience
+   - Certifications
+   - Achievements
+   - Languages
+   - Contact Information
+
+6. Highlight skills using professional tags or progress indicators.
+7. Use modern fonts, subtle shadows, clean cards, and elegant section dividers.
+8. Maintain excellent readability and proper alignment.
+9. Use a professional color palette (Navy Blue, White, Light Gray).
+10. Make the resume look similar to resumes used by top tech companies.
+
+IMPORTANT:
+Whenever profile image is needed, use ONLY:
+
+<img src="PROFILE_IMAGE_PLACEHOLDER" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+
+Do not generate any other image tag.
+
+OUTPUT RULES:
+- Return only complete HTML code.
+- Include all CSS inside <style> tags.
+- No explanations.
+- No markdown.
+- No code fences.
+- Ready to render directly in browser.
+- Create a unique premium design every time.
+- Resume must look professional enough to impress recruiters within 10 seconds. """
 
 final_prompt=prompt+prompt_generator(model)
 USER_INFO=st.text_area("ENTER YOUR INFORMATION")
