@@ -153,7 +153,7 @@ Resume info {USER_INFO}
 Photo: {uploaded_file }
 Photo present in current directory with name as 
 uploaded_file, and once resume generated give
-download button in same html code.
+download button in same html code.Give onclick downlaodabe html button so that we can download the pdf
 DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME """
 query = final_prompt+user_details
 
