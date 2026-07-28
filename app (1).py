@@ -122,26 +122,32 @@ if uploaded_file is not None:
 
 #===============================GENERATE RESUME==============================
 
-prompt = """You are a helpful AI assistant with job resume maker, your task
-is to give HTML format resume, with proper designing using recent CSS and JS
-code, with professional design format. user will upload data and return HTML
-format resume"""
+prompt="""you are a helpful ai assistant  with a job resume maker , your task is to give html gormat resume ,with a proper designing using recent html js css code , with professional degsine format , user will upload data and return html format resume make it diffrent colour scheme andthe resume should project m skill set  also make it look like professional , create side margins table also make the text gradient for heddings like professional summary
+IMPORTANT: wherever the profile photo goes in the resume, output exactly this tag and nothing else:
+<img src="PROFILE_IMAGE_PLACEHOLDER" style="width:100px;height:100px;border-radius:50%;">
+do not draw or generate any other image tag or placeholder circle yourself """
+final_prompt=prompt+resume()
+USER_INFO=st.text_input("ENTER YOUR INFORMATION")
+user_details=f"""user details:given beow :resume info {USER_INFO} DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME """
+query = final_prompt+user_details
 
-final_prompt = prompt + resume_maker_prompt()
+import base64
 
-user_info = st.text_input("Enter your information")
+if st.button('generate resume'):
+  with st.spinner("runnign agent"):
 
-user_details = f"""User details: given below:
-Resume info: {user_info}
-Photo: {uploaded_file}
-Photo present in current directory with name as uploaded_file, and once resume generated give 
-download button in same html code.
-Default if not given: Give Python Developer Resume"""
+    response = agent.invoke({'messages': [{'role':'user','content':query}]})
+    print(response['messages'][-1].content)
+    code=response['messages'][-1].content[-1]['text']
 
-query = final_prompt + user_details
+    # swap in the actual uploaded photo instead of the placeholder tag
+    if FILE is not None:
+        with open(save_path, "rb") as img_file:
+            b64_image = base64.b64encode(img_file.read()).decode()
+        data_uri = f"data:image/jpeg;base64,{b64_image}"
+        code = code.replace("PROFILE_IMAGE_PLACEHOLDER", data_uri)
 
-if st.button("Generate Resume"):
-  with st.spinner("Running Agent...."):
+    st.html(code , width="stretch" , unsafe_allow_javascript=True)
     
     response = agent.invoke({'messages': [{'role': 'user',"content": query}]})
     code = response['messages'] [-1].content [-1] ['text']
