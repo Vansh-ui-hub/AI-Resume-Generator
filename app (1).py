@@ -133,7 +133,7 @@ IMPORTANT: wherever the profile photo goes in the resume, output exactly this ta
 Do not draw or generate any other image tag or placeholder circle yourself """
 
 final_prompt=prompt+prompt_generator(model)
-USER_INFO=st.text_input("ENTER YOUR INFORMATION")
+USER_INFO=st.text_area("ENTER YOUR INFORMATION")
 user_details= f"""user details:given beow :
 Resume info {USER_INFO}
 Photo: {uploaded_file }
