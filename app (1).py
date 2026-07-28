@@ -126,7 +126,7 @@ prompt="""you are a helpful ai assistant  with a job resume maker , your task is
 IMPORTANT: wherever the profile photo goes in the resume, output exactly this tag and nothing else:
 <img src="PROFILE_IMAGE_PLACEHOLDER" style="width:100px;height:100px;border-radius:50%;">
 do not draw or generate any other image tag or placeholder circle yourself """
-final_prompt=prompt+resume()
+final_prompt=prompt+prompt_generator(model)
 USER_INFO=st.text_input("ENTER YOUR INFORMATION")
 user_details=f"""user details:given beow :resume info {USER_INFO} DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME """
 query = final_prompt+user_details
@@ -141,7 +141,7 @@ if st.button('generate resume'):
     code=response['messages'][-1].content[-1]['text']
 
     # swap in the actual uploaded photo instead of the placeholder tag
-    if FILE is not None:
+    if uploaded_file is not None:
         with open(save_path, "rb") as img_file:
             b64_image = base64.b64encode(img_file.read()).decode()
         data_uri = f"data:image/jpeg;base64,{b64_image}"
