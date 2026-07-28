@@ -122,7 +122,7 @@ if uploaded_file is not None:
 
 #===============================GENERATE RESUME==============================
 
-prompt=""""""You are a helpful AI assistant with job resume maker, your task
+prompt="""You are a helpful AI assistant with job resume maker, your task
 is to give HTML format resume, with proper designing using recent CSS and JS
 code, with professional design format. User will upload data and return HTML
 format resume, always use different styling use gradient theme pallete contrast in resume"""
