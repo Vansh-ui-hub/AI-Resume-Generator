@@ -122,8 +122,13 @@ if uploaded_file is not None:
 
 #===============================GENERATE RESUME==============================
 
-prompt="""you are a helpful ai assistant  with a job resume maker , your task is to give html gormat resume ,with a proper designing using recent html js css code , with professional degsine format , user will upload data and return html format resume make it diffrent colour scheme andthe resume should project m skill set  also make it look like professional , create side margins table also make the text gradient for heddings like professional summary
+prompt=""""""You are a helpful AI assistant with job resume maker, your task
+is to give HTML format resume, with proper designing using recent CSS and JS
+code, with professional design format. User will upload data and return HTML
+format resume, always use different styling use gradient theme pallete contrast in resume"""
+
 IMPORTANT: wherever the profile photo goes in the resume, output exactly this tag and nothing else:
+
 <img src="PROFILE_IMAGE_PLACEHOLDER" style="width:100px;height:100px;border-radius:50%;">
 do not draw or generate any other image tag or placeholder circle yourself """
 final_prompt=prompt+prompt_generator(model)
