@@ -130,10 +130,10 @@ format resume, always use different styling use gradient theme pallete contrast 
 IMPORTANT: wherever the profile photo goes in the resume, output exactly this tag and nothing else:
 
 <img src="PROFILE_IMAGE_PLACEHOLDER" style="width:100px;height:100px;border-radius:50%;">
-do not draw or generate any other image tag or placeholder circle yourself """
+"""Do not draw or generate any other image tag or placeholder circle yourself """
 final_prompt=prompt+prompt_generator(model)
 USER_INFO=st.text_input("ENTER YOUR INFORMATION")
-user_details=f"""user details:given beow :resume info {USER_INFO} DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME """
+user_details= f"""user details:given beow :resume info {USER_INFO} DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME """
 query = final_prompt+user_details
 
 import base64
